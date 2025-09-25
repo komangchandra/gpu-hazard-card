@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Hazard from "./pages/Hazard";
+import Dashboard from "./pages/Dashboard";
+import Reports from "./pages/Reports";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/* Halaman utama */}
+      <Route path="/" element={<Hazard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard/hazard-reports" element={<Reports />} />
+    </Routes>
   );
 }
 
