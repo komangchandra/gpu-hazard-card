@@ -96,24 +96,30 @@ const HazardForm = ({ onSubmit }) => {
       {/* Lokasi */}
       <div className="mb-3">
         <label className="form-label">Lokasi</label>
-        {["Tambang", "Kantor", "Workshop", "Jalan Hauling", "Lainnya"].map(
-          (item) => (
-            <div className="form-check" key={item}>
-              <input
-                className="form-check-input"
-                type="radio"
-                name="lokasi"
-                id={item}
-                value={item}
-                checked={lokasi === item}
-                onChange={(e) => setLokasi(e.target.value)}
-              />
-              <label className="form-check-label" htmlFor={item}>
-                {item}
-              </label>
-            </div>
-          )
-        )}
+        {[
+          "PIT",
+          "Kantor",
+          "Workshop",
+          "Jalan Hauling",
+          "Mess",
+          "Kantin",
+          "Lainnya",
+        ].map((item) => (
+          <div className="form-check" key={item}>
+            <input
+              className="form-check-input"
+              type="radio"
+              name="lokasi"
+              id={item}
+              value={item}
+              checked={lokasi === item}
+              onChange={(e) => setLokasi(e.target.value)}
+            />
+            <label className="form-check-label" htmlFor={item}>
+              {item}
+            </label>
+          </div>
+        ))}
         {lokasi === "Lainnya" && (
           <div className="mt-2">
             <input
@@ -173,8 +179,9 @@ const HazardForm = ({ onSubmit }) => {
           <option value="KTT">KTT</option>
           <option value="HSE">HSE</option>
           <option value="Engineering">Engineering</option>
-          <option value="HR">HR</option>
-          <option value="Fasility">Fasility</option>
+          <option value="Survey">Survey</option>
+          <option value="External">External</option>
+          <option value="Fasilitas">Fasilitas</option>
           <option value="Elektrik">Elektrik</option>
           <option value="Mekanik">Mekanik</option>
           <option value="Warehouse/Logistic">Warehouse/Logistic</option>
@@ -249,6 +256,7 @@ const HazardForm = ({ onSubmit }) => {
           onChange={(e) => setStatus(e.target.value)}
         >
           <option>OPEN</option>
+          <option>PROGRESS</option>
           <option>CLOSE</option>
         </select>
       </div>

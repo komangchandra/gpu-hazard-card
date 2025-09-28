@@ -51,6 +51,13 @@ const Hazard = () => {
           <HazardForm onSubmit={handleSave} />
         </div>
       </div>
+      {/* Copyright */}
+      <div
+        className="text-center mt-4 mb-4"
+        style={{ fontSize: "0.95rem", color: "#888" }}
+      >
+        &copy; {new Date().getFullYear()} Developed by Komang
+      </div>
     </div>
   );
 };
