@@ -31,6 +31,20 @@ const Hazard = () => {
 
   return (
     <div className="container mt-4">
+      {/* Header SVG */}
+      <div className="text-center mb-4">
+        <img
+          src="/header.svg"
+          alt="Header SVG"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+      </div>
+      {/* Hazard Card Image (optional, bisa dihapus jika tidak perlu) */}
+      {/* <img
+        src="/hazard-card.png"
+        alt="Hazard Card"
+        className="img-fluid mb-3"
+      /> */}
       <div className="card shadow">
         <div className="card-header text-center fw-bold">HAZARD CARD</div>
         <div className="card-body">

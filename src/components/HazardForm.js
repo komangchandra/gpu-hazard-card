@@ -185,24 +185,59 @@ const HazardForm = ({ onSubmit }) => {
       <div className="mb-3">
         <label className="form-label">Kategori Risiko</label>
         <div className="d-flex gap-2">
-          {["AA", "A", "B", "C"].map((r) => (
-            <div
-              key={r}
-              className={`badge p-2 ${
-                r === "AA"
-                  ? "bg-danger"
-                  : r === "C"
-                  ? "bg-success"
-                  : "bg-warning text-dark"
-              }`}
-              style={{ cursor: "pointer" }}
-              onClick={() => setRisiko(r)}
-            >
-              {r}
-            </div>
-          ))}
+          {["AA", "A", "B", "C"].map((r) => {
+            let bgColor = "";
+            let textColor = "text-white";
+            if (r === "AA") {
+              bgColor = "bg-danger"; // merah
+            } else if (r === "A") {
+              bgColor = "bg-warning text-dark"; // kuning
+              textColor = "text-dark";
+            } else if (r === "B") {
+              bgColor = "";
+            } else if (r === "C") {
+              bgColor = "";
+            }
+            // Custom style untuk hijau muda dan hijau tua
+            let customStyle = { cursor: "pointer" };
+            if (r === "B") {
+              customStyle.backgroundColor = "#90ee90"; // hijau muda
+              customStyle.color = "#212529";
+            }
+            if (r === "C") {
+              customStyle.backgroundColor = "#006400"; // hijau tua
+              customStyle.color = "#fff";
+            }
+            return (
+              <div
+                key={r}
+                className={`badge p-2 ${bgColor} ${textColor}`}
+                style={customStyle}
+                onClick={() => setRisiko(r)}
+              >
+                {r}
+              </div>
+            );
+          })}
         </div>
         {risiko && <div className="mt-2">Dipilih: {risiko}</div>}
+        {/* Gambar Risiko dan Matrik */}
+        <div className="row mt-3">
+          <div className="col-md-6 text-center mb-2 mb-md-0">
+            <img
+              src="/risiko.png"
+              alt="Risiko"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+          <div className="col-md-6 text-center">
+            <img
+              src="/matrik.png"
+              alt="Matrik"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Status */}
